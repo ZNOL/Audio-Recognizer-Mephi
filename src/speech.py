@@ -38,10 +38,8 @@ async def old_recognition(mainPath):
     audioPath = mainPath + '/audio'
 
     files = sorted(list(os.listdir(audioPath)), key=lambda x: int(x.split('.')[0][5:]))
-    print(files)
     for filename in files:
         idx = int(filename.split('.')[0][5:])
-        print('!', idx)
         with sr.AudioFile(f'{audioPath}/{filename}') as source:
             audio = r.record(source)
             try:
